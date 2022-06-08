@@ -20,18 +20,18 @@ export class Comment {
       })
     content!: string;
 
-    @Column()
+    @Column({ nullable: true })
     employeeId!: number;
     @ManyToOne((_type) => Employee, (employee: Employee) => employee.comments)
     @JoinColumn()
     employee!: Employee
 
-    @Column()
+    @Column({ nullable: true })
     taskId!: number;
     @ManyToOne((_type) => Task, (task: Task) => task.comments)
     @JoinColumn()
     task!: Task;
-    
+
     @CreateDateColumn()
     createdAt!: Date;
 
